@@ -1,8 +1,6 @@
 <script setup>
     import { ref } from 'vue';
-    import { testsClean } from '../components/Tabla.vue';
 
-    const datos = testsClean;
 </script>
 
 <template>
