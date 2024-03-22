@@ -1,6 +1,9 @@
 <script setup>
     import { ref } from 'vue';
 
+    const emit = defineEmits(['table-data'])
+
+
 const showFormFlag = ref(false);
 const newTest = ref({ name: "q0", id: 0, result1: null, result2: null , editing: false, saveEnabled: false, inicio: false});
 const testsClean = ref([]);
@@ -53,12 +56,10 @@ const cleanData = (data) => {
 
 const verCleanData = () => {
   testsClean.value = tests.value.map(cleanData);
-  console.log(testsClean.value)
+  emit('table-data', testsClean.value);
+  // console.log(testsClean.value)
 };
 
-const props = defineProps({
-  testsClean: Array,
-});
 </script>
 
 <template>

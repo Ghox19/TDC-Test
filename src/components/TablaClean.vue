@@ -1,6 +1,8 @@
 <script setup>
     import { ref } from 'vue';
 
+    const { tableDataIn } = defineProps(["tableDataIn"])
+
 </script>
 
 <template>
@@ -14,16 +16,18 @@
             <tr>
               <th scope="col">Inicio</th>
               <th scope="col">Estado</th>
-              <th scope="col">Direccion</th>
+              <th scope="col">Simbolo 1</th>
+              <th scope="col">Simbolo 2</th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="test in tests" :key="test.id">
+            <tr v-for="test in tableDataIn" :key="test.id">
                 <td>
-                  <input type="checkbox" class="toggle-btn" v-model="test.inicio"/>
+                  <input id="poto" type="checkbox" v-model="test.inicio" disabled>
                 </td>
                 <td>{{ test.name }}</td>
-                <td>{{ test.result }}</td>
+                <td>{{ test.result1 }}</td>	
+                <td>{{ test.result2 }}</td>
             </tr>
           </tbody>
         </table>
